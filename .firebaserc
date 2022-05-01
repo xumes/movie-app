@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "movie-1985a": {
+      "hosting": {
+        "movie-app": [
+          "movie-1985a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "movie-1985a"
+  }
+}

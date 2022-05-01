@@ -16,9 +16,9 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.movieDbService.getWeekTrendingMovies()
       .subscribe((movies) => {
-        console.log("movies are", movies)
         this.result = movies
         this.movies = this.movieDbService.formatMovies(this.result)
+        console.log("movies", this.movies)
       })
   }
 

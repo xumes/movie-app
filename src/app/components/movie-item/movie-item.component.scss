@@ -1,0 +1,15 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  width: 100%;
+  color: blue;
+}
+
+.poster {
+  width: 90px;
+  height: auto;
+}

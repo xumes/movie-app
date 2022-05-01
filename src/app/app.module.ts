@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { AngularFireModule} from '@angular/fire/compat'
+import { HttpClientModule} from '@angular/common/http'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+
+import { environment } from 'src/environments/environment';
+import { MoviesComponent } from './components/movies/movies.component';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MoviesComponent,
+    MovieItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFunctions(() => getFunctions())
-  ],
+    AngularFireModule.initializeApp(environment.firebase),
+    HttpClientModule,
+    FontAwesomeModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

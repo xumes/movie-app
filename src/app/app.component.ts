@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+
+import { MovieDbService} from './services/movie-db.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'movie-app';
+  title: string = 'movie-app';
+  items: Observable<any[]>;
+
+  movies: any
+  constructor(db: AngularFireDatabase){
+    this.items = db.list('providers').valueChanges()
+  }
 }

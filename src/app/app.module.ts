@@ -13,6 +13,8 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ButtonComponent } from './components/button/button.component';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +23,15 @@ import { ButtonComponent } from './components/button/button.component';
     MovieItemComponent,
     SearchBarComponent,
     ButtonComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

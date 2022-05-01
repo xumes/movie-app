@@ -1,5 +1,5 @@
-<div class="search-bar">
-  <input type="search" name="search" />
-  <app-button color="green" label="Search" ></app-button>
-</div>
+<form class="search-bar">
+  <input type="search" name="term" [(ngModel)]="term" />
+  <app-button color="green" label="Search" (bntClick)="handleSearch()" ></app-button>
+</form>
 

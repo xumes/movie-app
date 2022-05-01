@@ -9,7 +9,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieDbService {
-  private movieDbBaseUrl: string = 'https://api.themoviedb.org/3/';
+  private movieDbBaseUrl: string = 'https://api.themoviedb.org/3';
   private movieDbAccessToken: string = environment.movieDbApiKey;
   private movieImagePath: string = "https://image.tmdb.org/t/p/w500"
   private headers = new HttpHeaders();

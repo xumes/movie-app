@@ -1,3 +1,5 @@
-  <app-movie-item class="row" *ngFor="let movie of movies" [movie]="movie">
+<app-search-bar (onSearch)="searchMovieByTitle($event)"></app-search-bar>
+
+<app-movie-item class="row" *ngFor="let movie of movies" [movie]="movie">
   </app-movie-item>
 

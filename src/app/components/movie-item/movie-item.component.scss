@@ -1,35 +1,47 @@
-.movie-item {
+/* Three columns side by side */
+.column {
+  float: left;
+  width: 19%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+
+  .title {
+    font-size: small;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-content: space-around;
 }
 
-.image {
-  flex: 1;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  align-content: flex-start;
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .title {
+  color: grey;
+}
+
+img {
   width: 100%;
-  color: blue;
-  padding: 8px;
-  font-weight: 600;
-}
-
-.poster {
-  width: 110px;
-  height: auto;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.poster:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }

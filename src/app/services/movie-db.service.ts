@@ -42,7 +42,7 @@ export class MovieDbService {
       title: item.title,
       overview: item.overview,
       poster_path: this.movieImagePath + item.poster_path,
-      backdrop_path: item.backdrop_path,
+      backdrop_path: this.movieImagePath + item.backdrop_path,
       vote_average: item.vote_average,
     }
   }

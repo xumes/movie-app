@@ -1,13 +1,18 @@
 <div class="movie-item">
-  <div class="title">
-    {{movie.title}}
+  <div class="image">
+    <img class="poster" src="{{movie.poster_path}}" />
   </div>
 
-  <div class="average">
-    Vote average: {{movie.vote_average}}
+  <div class="content">
+    <div class="title">
+      {{movie.title}}
+    </div>
+
+    <div class="average">
+      👀: {{movie.vote_average}}
+    </div>
   </div>
 
-  <img class="poster" src="{{movie.poster_path}}" />
 </div>
 
 

@@ -1,0 +1,17 @@
+input {
+  display: flex;
+  width: 30%;
+  height: 40px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size:24px;
+  font-family: monospace;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+ justify-content: center;
+  width: 100%;
+}

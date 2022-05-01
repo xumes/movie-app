@@ -11,12 +11,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { environment } from 'src/environments/environment';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ButtonComponent } from './components/button/button.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MoviesComponent,
     MovieItemComponent,
+    SearchBarComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

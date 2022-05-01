@@ -24,6 +24,13 @@ export class MovieDbService {
     const result = this.http.get<any[]>(url, {headers: this.headers})
     return result
   }
+//https://api.themoviedb.org/3/search/movie?query=batman&api_key=474403c8576fa6b937dead073a877273&page=1
+  findMoviesByTitle(term: string,  page?: number):Observable<any[]>{
+    page = (page !== undefined) ? page : 1;
+    const url: string = this.movieDbBaseUrl + '/search/movie?query=' + term + '&api_key=' + this.movieDbAccessToken + '&page=' + page
+    const result = this.http.get<any[]>(url, {headers: this.headers})
+    return result
+  }
 
   formatMovies(list: any): Movie[] {
     const results = list.results

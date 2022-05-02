@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 
-import { MovieDbService} from './services/movie-db.service'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -15,6 +15,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { ButtonComponent } from './components/button/button.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,9 @@ import { SearchComponent } from './components/search/search.component';
     SearchBarComponent,
     ButtonComponent,
     SearchComponent,
+    PageNotFoundComponent,
+    MovieDetailComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

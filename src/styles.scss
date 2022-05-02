@@ -11,6 +11,16 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  cursor: pointer;
+  text-decoration: none;;
+}
+
+a:visited {
+  cursor: pointer;
+  text-decoration: none;;
+}
+
 .container {
   padding: 0 16px;
   display: flex;

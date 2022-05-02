@@ -3,11 +3,33 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 1vh ;
   margin: 16px;
 
   img {
     width: 900px;
+    border-radius: 8px;
   }
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+.back {
+  padding: 8px 0 0 8px;
+}
+
+.column {
+  margin: auto;
+  width: 80%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

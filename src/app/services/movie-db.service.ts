@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import  { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../environments/environment'
-import { Movie } from '../Movie'
+import { Movie, MovieDetail } from '../Movie'
 import { Observable, tap } from 'rxjs';
 
 
@@ -32,6 +32,13 @@ export class MovieDbService {
     return result
   }
 
+  getMovieDetails(id: number, page?: number): Observable<any[]>{
+    page = (page !== undefined) ? page : 1;
+    const url: string = this.movieDbBaseUrl + '/movie/' + id + '?api_key=' + this.movieDbAccessToken + '&page=' + page
+    const result = this.http.get<any[]>(url, {headers: this.headers})
+    return result
+  }
+
   formatMovies(list: any): Movie[] {
     const results = list.results
 
@@ -51,6 +58,23 @@ export class MovieDbService {
       poster_path: this.movieImagePath + item.poster_path,
       backdrop_path: this.movieImagePath + item.backdrop_path,
       vote_average: item.vote_average,
+    }
+  }
+
+  formatMovieDetail(item: any): MovieDetail {
+    return {
+      id: item.id,
+      title: item.title,
+      overview: item.overview,
+      poster_path: this.movieImagePath + item.poster_path,
+      backdrop_path: this.movieImagePath + item.backdrop_path,
+      vote_average: item.vote_average,
+      popularity: item.popularity,
+      status: item.status,
+      release_date: item.release_date,
+      tagLine: item.tagLine,
+      vote_count: item.vote_count,
+      runtime: item.runtime
     }
   }
 }

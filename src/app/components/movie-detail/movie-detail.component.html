@@ -1,1 +1,21 @@
-<p>movie-detail works!</p>
+<div class="detail-container">
+  <img src="{{movieDetail.backdrop_path}}" />
+  <div class="header">
+    <h2 class="title">{{movieDetail.title}}</h2>
+    <h3 class="title">{{movieDetail.tagLine}}</h3>
+  </div>
+  <div class="overview">
+    <p>{{movieDetail.overview}}</p>
+  </div>
+  <div class="info">
+    <p>Status: {{movieDetail.status}}</p>
+    <p>Released: {{movieDetail.release_date}}</p>
+    <p>Runtime: {{movieDetail.runtime}}</p>
+    <div class="popularity">
+      <div>Popularity: {{movieDetail.popularity}}</div>
+      <div>Votes: {{movieDetail.vote_average}} avg /{{movieDetail.vote_count}} count</div>
+    </div>
+  </div>
+</div>
+
+

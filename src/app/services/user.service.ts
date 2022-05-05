@@ -24,14 +24,12 @@ export class UserService {
   //   this.firestore.doc('users/' + user.uid).update(user)
   // }
 
-  async getCurrentUser(id: string)  {
-  await this.firestore
-      .collection('users').
-      doc('LASZyUb2YDW0P5dln9xG')
+  getCurrentUser(id: string): Observable<any>  {
+    const user =  this.firestore
+      .collection('users')
+      .doc(id)
       .get()
-      .subscribe((doc) => {
-        console.log("doc", doc.data())
-        return doc.data()
-      })
+
+    return user
   }
 }

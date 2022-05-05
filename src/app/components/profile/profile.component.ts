@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -7,31 +9,40 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  uuid: string = ""
   name: string = ""
   email: string = ""
-  password: string = ""
+  currentUser: User = {
+    name: "",
+    email: ""
+  }
 
   constructor(
     private userService: UserService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.getUserData()
+    const currentUser = this.authService.getCurrentUser()
+    this.name = currentUser.name
+    this.email = currentUser.email
+    this.getUserData(currentUser.uid)
   }
 
-  async getUserData() {
-    const currentUser =  this.userService.getCurrentUser('LASZyUb2YDW0P5dln9xG')
-    .then(theUser => {
-      console.log("este sim, éo  ususario", theUser)
+  async getUserData(id: string): Promise<void> {
+    const currentUser =  await this.userService.getCurrentUser(id)
+    currentUser.subscribe(user => {
+      if (user.data()) {
+        this.currentUser = user.data()
+        this.email = user.get('email')
+        this.name = user.get('name')
+        console.log("meu email", this.email)
+      }
     })
-    console.log("est é o usuario", currentUser)
   }
 
   onSubmit(formData: any) {
-    if (formData.valid) {
-      console.log(formData.value)
-     this.userService.getCurrentUser('123')
-    }
+
   }
 
 }

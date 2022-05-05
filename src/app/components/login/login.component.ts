@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
     const currentUser = this.authService.getCurrentUser()
 
     if (currentUser) {
-      console.log("currentUser", currentUser)
       this.router.navigateByUrl('/movies')
     }
 

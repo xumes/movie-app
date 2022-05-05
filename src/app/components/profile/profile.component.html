@@ -1,10 +1,9 @@
 <div class="form-container">
-  <a routerLink="/login" id="goback">Back to Login Page</a>
-  <h2 class="signup-header">Sign Up</h2>
+  <a routerLink="/movies" id="goback">Back to Movies</a>
+  <h2 class="signup-header">Profile: {{currentUser.name}}</h2>
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-    <input type="text" placeholder="Email address" (ngModel)="email" name="email" class="input-txt" required>
-    <input type="password" placeholder="Password" (ngModel)="password" name="password" minlength="6" class="input-txt" required>
-    <div class="password-minlen">Password must contain more than 6 characters</div>
-    <button type="submit" [disabled]="!formData.valid" class="auth-btn">Create Account</button>
+    <input type="text" placeholder="Name" [(ngModel)]="name" name="name" class="input-txt" required>
+    <input type="text" placeholder="Email address" [(ngModel)]="email" name="email" class="input-txt" required>
+    <button type="submit" [disabled]="!formData.valid" class="auth-btn">Save</button>
   </form>
 </div>

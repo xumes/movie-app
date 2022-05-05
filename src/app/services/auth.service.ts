@@ -16,6 +16,7 @@ export class AuthService {
   login(email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
+      localStorage.setItem('user', JSON.stringify(value))
       this.router.navigateByUrl('/movies')
     })
     .catch(err => {
@@ -26,7 +27,8 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-      this.router.navigateByUrl('/movies')
+      localStorage.setItem('user', JSON.stringify(value))
+      this.router.navigateByUrl('/profile')
     })
     .catch(err => {
       console.log("Something went wrong: ", err)
@@ -34,12 +36,17 @@ export class AuthService {
   }
 
   isUserLogged() {
-    const user:any = this.afAuth.currentUser
+    const user:any = localStorage.getItem('user')
     if(user) {
       return true
     }
 
     return false
+  }
+
+  getCurrentUser() {
+    const user:any = localStorage.getItem('user')
+    return JSON.parse(user)
   }
 
   logout() {

@@ -16,8 +16,7 @@ export class AuthService {
   login(email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      console.log("Nice, it works", value)
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/movies')
     })
     .catch(err => {
       console.log("Something went wrong: ", err.message)
@@ -27,12 +26,20 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-      console.log("Success", value)
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/movies')
     })
     .catch(err => {
       console.log("Something went wrong: ", err)
     })
+  }
+
+  isUserLogged() {
+    const user:any = this.afAuth.currentUser
+    if(user) {
+      return true
+    }
+
+    return false
   }
 
   logout() {

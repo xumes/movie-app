@@ -16,7 +16,8 @@ export class AuthService {
   login(email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      localStorage.setItem('user', JSON.stringify(value))
+      //check if user has account on database and grab name to update the localStorage
+      localStorage.setItem('user', JSON.stringify(value.user))
       this.router.navigateByUrl('/movies')
     })
     .catch(err => {
@@ -27,7 +28,7 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-      localStorage.setItem('user', JSON.stringify(value))
+      localStorage.setItem('user', JSON.stringify(value.user))
       this.router.navigateByUrl('/profile')
     })
     .catch(err => {

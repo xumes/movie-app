@@ -22,6 +22,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     SignupComponent,
     LoginComponent,
     ProfileComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

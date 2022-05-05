@@ -18,6 +18,9 @@ import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { HomeComponent } from './components/home/home.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +33,14 @@ import { HomeComponent } from './components/home/home.component';
     PageNotFoundComponent,
     MovieDetailComponent,
     HomeComponent,
+    SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     HttpClientModule,
     FontAwesomeModule,
     FormsModule

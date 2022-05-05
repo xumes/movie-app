@@ -19,12 +19,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const currentUser = this.authService.getCurrentUser()
 
-    if (currentUser.name) {
+    if (currentUser) {
       console.log("currentUser", currentUser)
       this.router.navigateByUrl('/movies')
     }
 
-    this.router.navigateByUrl('/profile')
+    // this.router.navigateByUrl('/profile')
 
   }
 

@@ -4,6 +4,11 @@
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
     <input type="text" placeholder="Name" [(ngModel)]="name" name="name" class="input-txt" required>
     <input type="text" placeholder="Email address" [(ngModel)]="email" name="email" class="input-txt" required>
+
+    <app-providers></app-providers>
+
     <button type="submit" [disabled]="!formData.valid" class="auth-btn">Save</button>
   </form>
+
+  <app-providers></app-providers>
 </div>

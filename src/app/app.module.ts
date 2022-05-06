@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ProvidersComponent } from './components/providers/providers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     LoginComponent,
     ProfileComponent,
     LogoutComponent,
+    ProvidersComponent,
   ],
   imports: [
     BrowserModule,

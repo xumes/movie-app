@@ -1,6 +1,6 @@
 <div class="form-container">
   <a routerLink="/movies" id="goback">Back to Movies</a>
-  <h2 class="signup-header">Profile: {{currentUser.name}}</h2>
+  <h2 class="signup-header">Profile: {{name}}</h2>
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
     <input type="text" placeholder="Name" [(ngModel)]="name" name="name" class="input-txt" required>
     <input type="text" placeholder="Email address" [(ngModel)]="email" name="email" class="input-txt" required>

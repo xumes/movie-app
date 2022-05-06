@@ -18,13 +18,12 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isUserLogged()) {
-      this.router.navigateByUrl('/movies')
+      this.router.navigateByUrl('/profile')
     }
   }
 
   onSubmit(formData: any) {
     if (formData.valid) {
-      console.log(formData.value)
       this.authService.emailSignup(
         formData.value.email,
         formData.value.password

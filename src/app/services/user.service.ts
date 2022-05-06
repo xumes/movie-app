@@ -14,13 +14,16 @@ export class UserService {
 
   createUser(user: User) {
     return this.firestore.collection('users').add(user)
+    localStorage.removeItem('user')
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
   updateUser(user: User) {
     const docId = user.id
     delete user.id
-    console.log("user, ai ai ai", user)
     this.firestore.doc('users/' + docId).update(user)
+    localStorage.removeItem('user')
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
   getCurrentUser(id: string)  {

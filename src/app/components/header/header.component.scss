@@ -29,3 +29,17 @@ toolbar {
 .toolbar #youtube-logo:hover {
   opacity: 0.8;
 }
+
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-navbar {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:  0 16px 0 16px;
+}

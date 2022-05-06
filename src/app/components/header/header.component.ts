@@ -7,13 +7,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.scss', '../../app.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  user: any = null
+  hasLoggedUser: boolean = false
   displayName: string = ""
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
-
+    this.hasLoggedUser = this.authService.isUserLogged()
+    const user = this.authService.getCurrentUser()
+    this.displayName = user.name || ""
   }
 
 }

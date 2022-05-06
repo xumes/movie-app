@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import firebase from 'firebase/compat/app';
-
+import { UserService } from './user.service'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  docId: string = ""
 
   constructor(
     private afAuth: AngularFireAuth,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -17,8 +18,25 @@ export class AuthService {
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
       //check if user has account on database and grab name to update the localStorage
-      localStorage.setItem('user', JSON.stringify(value.user))
-      this.router.navigateByUrl('/movies')
+      const userId = value.user?.uid || ''
+
+      const currentUser = this.userService.getCurrentUser(userId)
+      currentUser.get().subscribe(user => {
+        if (user.docs.length >= 1) {
+          //if there is one user on the database with this uid
+          user.forEach(doc => this.docId = doc.id)
+          const currentUser = user.docs[0]
+          const loggedInUser = {
+            name: currentUser.get('name'),
+            email: currentUser.get('email'),
+            id: this.docId,
+            uuid: currentUser.get('uid')
+          }
+          localStorage.setItem('user', JSON.stringify(loggedInUser))
+          this.router.navigateByUrl('/movies')
+        }
+      })
+
     })
     .catch(err => {
       console.log("Something went wrong: ", err.message)

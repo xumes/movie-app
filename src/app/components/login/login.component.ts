@@ -22,14 +22,10 @@ export class LoginComponent implements OnInit {
     if (currentUser) {
       this.router.navigateByUrl('/movies')
     }
-
-    // this.router.navigateByUrl('/profile')
-
   }
 
   onSubmit(formData: any) {
     if (formData.valid) {
-      console.log(formData.value)
       this.authService.login(
         formData.value.email,
         formData.value.password
